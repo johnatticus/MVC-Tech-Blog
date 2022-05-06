@@ -14,11 +14,20 @@ const editFormHandler = async function(event) {
   document.location.replace('/dashboard');
 };
 
-const deleteClickHandler = async function() {
-  await     // Create the functionality to help create the buttons for your website.
+const deleteClickHandler = async function(event) {
+  if (event.target.hasAttribute('data-id')) {
+    const id = event.target.getAttribute('data-id');
 
+    const response = await fetch(`/api/projects/${id}`, {
+      method: 'DELETE',
+    });
 
-  document.location.replace('/dashboard');
+    if (response.ok) {
+      document.location.replace('/dashboard');
+    } else {
+      alert('Failed to delete project');
+    }
+  }
 };
 
 document
