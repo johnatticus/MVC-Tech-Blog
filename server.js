@@ -3,6 +3,12 @@
 // express
 // express-handlebars
 // helpers (if you are putting timestamps on posts)
+const path = require('path');
+const express = require('express');
+const exphbs = require('express-handlebars');
+const helpers = require('./utils/helper');
+// const session = require('express-session');
+// const routes = require('./controllers');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -12,6 +18,13 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const sess = {
     // For password sessions
+    secret: 'Super secret secret',
+    cookie: {},
+    resave: false,
+    saveUninitialized: true,
+    store: new SequelizeStore({
+      db: sequelize
+    })
 };
 
 app.use(session(sess));
