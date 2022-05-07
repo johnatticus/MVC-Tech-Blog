@@ -1,4 +1,4 @@
-const { route } = require("../../../.Main/controllers/api");
+// const { route } = require("../../../.Main/controllers/api");
 const router = require("express").Router();
 const userRoutes = require('./userRoutes');
 const postRoutes = require('./postRoutes');

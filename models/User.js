@@ -13,7 +13,7 @@ User.init(
     { 
         // Finish the user model
         id: {
-            type: DataType.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
