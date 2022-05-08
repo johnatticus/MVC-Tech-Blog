@@ -15,8 +15,9 @@ const editFormHandler = async function(event) {
 };
 
 const deleteClickHandler = async function(event) {
-  if (event.target.hasAttribute('data-id')) {
-    const id = event.target.getAttribute('data-id');
+  // THE TWO BELOW LINES...DON'T NEED? FROM MINI PROJ PROFILE.JS
+  // if (event.target.hasAttribute('data-id')) {
+  //   const id = event.target.getAttribute('data-id');
 
     const response = await fetch(`/api/projects/${id}`, {
       method: 'DELETE',
@@ -27,7 +28,7 @@ const deleteClickHandler = async function(event) {
     } else {
       alert('Failed to delete project');
     }
-  }
+  // }
 };
 
 document
