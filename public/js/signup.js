@@ -14,6 +14,7 @@ const signupFormHandler = async function(event) {
   
     if (response.ok) {
       document.location.replace('/dashboard');
+      alert('You are signed up and logged in. Remember your password, please.')
     } else {
       alert('Failed to sign up');
     }

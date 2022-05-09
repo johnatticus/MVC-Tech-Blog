@@ -13,7 +13,7 @@ const loginFormHandler = async function(event) {
   
     if (response.ok) {
       document.location.replace('/dashboard');
-      console.log('WORKING');
+      alert('You are logged in');
     } else {
       alert('Failed to login');
     }
