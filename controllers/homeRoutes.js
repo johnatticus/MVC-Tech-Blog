@@ -53,7 +53,7 @@ router.get("/post/:id", async (req, res) => {
 router.get("/login", (req, res) => {
     // login
     if (req.session.logged_in) {
-        res.redirect('/all-posts-admin'); //I THINK THIS SHOULD ROUTE TO ALL-POSTS-ADMIN IF LOGGED IN???? 
+        res.redirect('/'); //I THINK THIS SHOULD ROUTE TO ALL-POSTS-ADMIN IF LOGGED IN???? 
         return;
       }
     
@@ -63,7 +63,7 @@ router.get("/login", (req, res) => {
 router.get("/signup", (req, res) => {
     // signup
     if (req.session.logged_in) {
-        res.redirect('/all-posts-admin'); //I THINK THIS SHOULD ROUTE TO ALL-POSTS-ADMIN IF LOGGED IN???? 
+        res.redirect('/'); //I THINK THIS SHOULD ROUTE TO ALL-POSTS-ADMIN IF LOGGED IN???? 
         return;
       }
     

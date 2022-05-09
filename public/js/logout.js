@@ -1,6 +1,8 @@
 const logout = async function() {
     const response = await fetch('/api/user/logout', {
        // Create the functionality to help create the buttons for your website.
+       method: 'POST',
+       headers: { 'Content-Type': 'application/json'}
 
     });
   

@@ -1,9 +1,30 @@
 const router = require("express").Router();
+const { response } = require("express");
 const { Post } = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get("/", withAuth, async (req, res) => {
     // we want to go ahead and finishing the routing to get all the posts
+    try {
+        const postData = await Post.findAll({
+            where: {
+                userId: req.session.userId,
+
+            }
+        })
+
+        const posts = postData.map((post) => post.get({ plain: true }))
+
+        res.render('all-posts-admin', {
+            layout: 'dashboard',
+            posts,
+        })
+    }
+
+    catch (err) {
+        res.redirect('login');
+    }
+
 });
 
 router.get("/new", withAuth, (req, res) => {
