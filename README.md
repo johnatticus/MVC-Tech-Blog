@@ -32,9 +32,9 @@
 
 ## Installation and Usage
 
-**Dependenchies required(installed):** npm i
+**Dependenchies required(installed):** `npm i`
 
-**Test Commands:** `npm start` or `node server.js`
+**Test Commands:** `node server.js`
 
 ---
 
