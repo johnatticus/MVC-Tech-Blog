@@ -42,6 +42,7 @@
 
 - Uses express, express handlebars, express sessions, mysql, and sequelize
 - Passwords masked with bcrypt
+- Deployed with Heroku
 
 ---
 
