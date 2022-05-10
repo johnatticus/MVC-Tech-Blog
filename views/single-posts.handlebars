@@ -1,7 +1,16 @@
 <div class="post card">
     <div class="card-header">
-        <h2>Create New Post</h2>
+        <h2>{{post.title}}</h2>
+        posted by: {{post.User.username}}
     </div>
+    <div class="card-body">
+        {{post.content}}
+    </div>
+</div>
+
+
+
+
     <form id="edit-post-form" class="card-body">
         {{!-- <input type="hidden" name="post-id" value="{{post.id}}" /> --}}
 
@@ -15,6 +24,5 @@
 
     </form>
 
-    <button type="submit" class="btn">+ New Post</button>
+    <button type="submit" class="btn">Add Comment</button>
 
-</div>

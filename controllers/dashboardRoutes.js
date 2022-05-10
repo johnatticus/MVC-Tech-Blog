@@ -18,6 +18,8 @@ router.get("/", withAuth, async (req, res) => {
         res.render('dashboard', {
             layout: 'main',
             posts,
+            logged_in: req.session.logged_in 
+
         })
     }
 

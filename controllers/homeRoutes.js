@@ -20,7 +20,7 @@ router.get("/", async (req, res) => {
         // Pass serialized data and session flag into template
         res.render('posts', { 
           posts, 
-          // logged_in: req.session.logged_in 
+          logged_in: req.session.logged_in 
         });
       } catch (err) {
         res.status(500).json(err);
@@ -41,9 +41,9 @@ router.get("/post/:id", async (req, res) => {
     
         const post = postData.get({ plain: true });
     
-        res.render('post', {
-          ...post,
-          logged_in: req.session.logged_in
+        res.render('single-posts', {
+          post,
+          // logged_in: req.session.logged_in
         });
       } catch (err) {
         res.status(500).json(err);

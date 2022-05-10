@@ -19,7 +19,7 @@ router.post("/", withAuth, async (req, res) => {
 
 router.put("/:id", withAuth, async (req, res) => {
     // Update a post
-    // THIS IS FROM MY ECOMMERCE BACK END...UNCOMMENT AND REFACTOR!
+    // THIS IS FROM MY ECOMMERCE BACK END...UNCOMMENT AND REFACTOR
     // Product.update(req.body, {
     //     where: {
     //       id: req.params.id,
