@@ -3,11 +3,14 @@
 <div class="post card">
     <div class="card-header">
         <h2><a href="/post/{{post.id}}">{{post.title}}</a></h2>
+        posted by: {{post.user.username}} on {{format_date post.date_created}}
+
     </div>
     <div class="card-body">
         <p>{{post.content}}</p>
     </div>
 </div>
 {{/each}}
-
-    <a href="/single-posts"><button id="new-post-form" type="submit" class="btn">+ New Post</button></a>
+{{#if logged_in}}
+    <a href="/dashboard"><button id="new-post-form" type="submit" class="btn">+ New Post</button></a>
+    {{/if}}

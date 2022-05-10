@@ -16,7 +16,8 @@ const newFormHandler = async function(event) {
   });
 
   if (response.ok) {
-    document.location.replace('/dashboard');
+    document.location.replace('/');
+    alert('Post created, select Home to see.')
   } else {
     alert('Failed to post');
   }
