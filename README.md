@@ -52,3 +52,5 @@
 
 **GitHub Repo:** [Click Here](https://github.com/johnatticus/MVC-Tech-Blog)
 
+**Live Link:** [Click Here](https://guarded-mountain-91935.herokuapp.com/)
+
