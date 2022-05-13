@@ -53,7 +53,7 @@ router.get("/post/:id", async (req, res) => {
 router.get("/login", (req, res) => {
     // login
     if (req.session.logged_in) {
-        res.redirect('/'); //I THINK THIS SHOULD ROUTE TO ALL-POSTS-ADMIN IF LOGGED IN???? 
+        res.redirect('/dashboard'); //I THINK THIS SHOULD ROUTE TO ALL-POSTS-ADMIN IF LOGGED IN???? 
         return;
       }
     
