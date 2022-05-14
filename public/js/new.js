@@ -6,7 +6,7 @@ const newFormHandler = async function(event) {
   const title = document.querySelector('input[name="post-title"]').value;
   const content = document.querySelector('textarea[name="post-body"]').value;
   
-  await fetch(`/api/post`, {
+  const response = await fetch(`/api/post`, {
     // Create the functionality to help create the buttons for your website.
     method: 'POST',
     body: JSON.stringify({ title, content }),
@@ -16,8 +16,7 @@ const newFormHandler = async function(event) {
   });
 
   if (response.ok) {
-    document.location.replace('/');
-    alert('Post created, select Home to see.')
+    document.location.replace('/dashboard');
   } else {
     alert('Failed to post');
   }

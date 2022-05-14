@@ -1,4 +1,3 @@
-{{#if loggedIn}}
 <div class="post card">
     <div class="card-header">
         <h2>Create New Post</h2>
@@ -7,16 +6,15 @@
         {{!-- <input type="hidden" name="post-id" value="{{post.id}}" /> --}}
 
         <label class="form-label" for="post-title">Title</label>
-        <input type="text" id="post-title" class="form-input" />
+        <input type="text" name="post-title" class="form-input" />
 
         <label class="form-label" for="post-body">Content</label>
-        <textarea id="post-body" class="form-input"></textarea>
+        <textarea name="post-body" class="form-input"></textarea>
 
         <button type="submit" class="btn">Create</button>
 
     </form>
 </div>
-{{/if}}
 
 
-<script src="./js/new.js"></script>
+<script src="/js/new.js"></script>

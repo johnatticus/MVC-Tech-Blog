@@ -30,7 +30,13 @@ router.get("/", withAuth, async (req, res) => {
 });
 
 router.get("/new", withAuth, (req, res) => {
-// for showing new posts to the user
+// for new post form
+res.render('newpost', {
+    logged_in: req.session.logged_in 
+
+});
+
+
 })
 
 router.get("/edit/:id", withAuth, async (res, req) => {

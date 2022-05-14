@@ -10,7 +10,7 @@
 
 
 
-
+{{#if logged_in}}
     <form id="new-comment-form" class="card-body">
         {{!-- <input type="hidden" name="post-id" value="{{post.id}}" /> --}}
 
@@ -20,6 +20,6 @@
         <button type="submit" class="btn">Post Comment</button>
 
     </form>
-
+{{/if}}
     {{!-- <button type="submit" class="btn">Add Comment</button> --}}
 
