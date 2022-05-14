@@ -2,7 +2,7 @@ const commentFormHandler = async function(event) {
     event.preventDefault();
   
     const postId = document.querySelector('input[name="post-id"]').value;
-    const content = document.querySelector('textarea[name="comment-body"]').value;
+    const comment = document.querySelector('textarea[name="comment-body"]').value;
   
     // Create the functionality to help create the buttons for your website.
     const response = await fetch(`/api/comment`, {

@@ -8,6 +8,13 @@
     </div>
 </div>
 
+{{#each post.comments as |comment|}}
+<div class="post card">
+    <div class="card-body">
+    <p>{{comment.comment}}</p>
+</div>
+</div>
+{{/each}}
 
 
 {{#if logged_in}}
@@ -20,6 +27,6 @@
         <button type="submit" class="btn">Post Comment</button>
 
     </form>
+
 {{/if}}
-    {{!-- <button type="submit" class="btn">Add Comment</button> --}}
-<script src="/js/comment.js"></script>
+    <script src="/js/comment.js"></script>
