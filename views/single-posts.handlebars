@@ -7,7 +7,19 @@
         {{post.content}}
     </div>
 </div>
-{{> comments }}
+{{!-- {{> comments }} --}}
+
+<div>
+{{#if post.Comments}}
+{{#each post.Comments}}
+<div class="post card">
+    <div class="card-body">
+    <p>{{comment}}</p>
+</div>
+</div>
+{{/each}}
+{{/if}}
+</div>
 
 
 {{#if logged_in}}

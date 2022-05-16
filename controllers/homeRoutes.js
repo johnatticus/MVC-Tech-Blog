@@ -31,6 +31,7 @@ router.get("/post/:id", async (req, res) => {
     // get a single post
     try {
         const postData = await Post.findByPk(req.params.id, {
+          // order: [['id', 'ASC']],
           include: [
             {
               model: User,
@@ -43,6 +44,7 @@ router.get("/post/:id", async (req, res) => {
                 model: User,
                 attributes: ['username']
               }
+              
               },
           ],
         });
