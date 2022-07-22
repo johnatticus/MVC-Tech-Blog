@@ -1,8 +1,8 @@
 const router = require("express").Router();
 const { Post, Comment, User } = require("../models");
 
+// get all posts for the homepage
 router.get("/", async (req, res) => {
-    // get all posts for the homepage
     try {
         // Get all projects and JOIN with user data
         const postData = await Post.findAll({
@@ -27,8 +27,8 @@ router.get("/", async (req, res) => {
       }
 });
 
+// get a single post
 router.get("/post/:id", async (req, res) => {
-    // get a single post
     try {
         const postData = await Post.findByPk(req.params.id, {
           // order: [['id', 'ASC']],
@@ -60,8 +60,8 @@ router.get("/post/:id", async (req, res) => {
       }
 });
 
+// login
 router.get("/login", (req, res) => {
-    // login
     if (req.session.logged_in) {
         res.redirect('/dashboard'); //I THINK THIS SHOULD ROUTE TO ALL-POSTS-ADMIN IF LOGGED IN???? 
         return;
@@ -70,8 +70,8 @@ router.get("/login", (req, res) => {
       res.render('login');
 });
 
+// signup
 router.get("/signup", (req, res) => {
-    // signup
     if (req.session.logged_in) {
         res.redirect('/'); //I THINK THIS SHOULD ROUTE TO ALL-POSTS-ADMIN IF LOGGED IN???? 
         return;
