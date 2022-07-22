@@ -6,22 +6,14 @@ router.get("/", async (req, res) => {
     try {
         // Get all projects and JOIN with user data
         const postData = await Post.findAll({
-          include: [
-            {
-              model: User,
-              attributes: ['username'],
-            },
-          ],
+          include: [User],
         });
     
         // Serialize data so the template can read it
         const posts = postData.map((post) => post.get({ plain: true }));
     
         // Pass serialized data and session flag into template
-        res.render('posts', { 
-          posts, 
-          logged_in: req.session.logged_in 
-        });
+        res.render('posts', { posts });
       } catch (err) {
         res.status(500).json(err);
       }
@@ -33,28 +25,30 @@ router.get("/post/:id", async (req, res) => {
         const postData = await Post.findByPk(req.params.id, {
           // order: [['id', 'ASC']],
           include: [
-            {
-              model: User,
-              attributes: ['username'],
-            },
+            User,
             {
               model: Comment,
-              attributes: ['comment'],
-              include: {
-                model: User,
-                attributes: ['username']
-              }
+              include: [User],
+            },
+            // {
+            //   model: Comment,
+            //   attributes: ['comment'],
+            //   include: {
+            //     model: User,
+            //     attributes: ['username']
+            //   }
               
-              },
+            //   },
           ],
         });
     
-        const post = postData.get({ plain: true });
+        if (postData) {
+          const post = postData.get({ plain: true });
     
-        res.render('single-posts', {
-          post,
-          logged_in: req.session.logged_in
-        });
+          res.render('single-posts', { post });
+        } else {
+          res.status(404).end();
+        }
       } catch (err) {
         res.status(500).json(err);
       }
