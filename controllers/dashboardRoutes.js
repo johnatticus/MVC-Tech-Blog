@@ -4,40 +4,30 @@ const { Post } = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get("/", withAuth, async (req, res) => {
-    // we want to go ahead and finishing the routing to get all the posts
     try {
         const postData = await Post.findAll({
-            where: {
+            where: { 
                 user_id: req.session.user_id,
-
-            }
-        })
+            },
+        });
 
         const posts = postData.map((post) => post.get({ plain: true }))
 
-        res.render('dashboard', {
-            layout: 'main',
+        res.render('all-posts-admin', {
+            layout: 'dashboard',
             posts,
-            logged_in: req.session.logged_in 
-
-        })
-    }
-
-    catch (err) {
+        });
+    } catch (err) {
         res.redirect('login');
     }
-
 });
 
-router.get("/new", withAuth, (req, res) => {
 // for new post form
-res.render('newpost', {
-    logged_in: req.session.logged_in 
-
+router.get("/new", withAuth, (req, res) => {
+    res.render('newpost', {
+        layout: 'dashboard',
+    });
 });
-
-
-})
 
 router.get("/edit/:id", withAuth, async (res, req) => {
     // To be able to find posts by primary key and render the edit post on the dashboard
