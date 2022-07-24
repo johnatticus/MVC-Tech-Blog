@@ -14,6 +14,7 @@
 {{#each post.Comments}}
 <div class="post card">
     <div class="card-body">
+        <h4>{{user.username}} commented at {{format_date createdAt}}:</h4> 
     <p>{{comment}}</p>
 </div>
 </div>
@@ -21,8 +22,6 @@
 {{/if}}
 </div>
 
-
-{{#if logged_in}}
     <form id="new-comment-form" class="card-body">
         <input type="hidden" name="post-id" value="{{post.id}}" />
 
@@ -33,5 +32,4 @@
 
     </form>
 
-{{/if}}
     <script src="/js/comment.js"></script>
